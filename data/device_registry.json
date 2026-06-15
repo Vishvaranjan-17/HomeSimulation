@@ -1,0 +1,35 @@
+{
+  "devices": [
+    {"id": "light_bedroom", "name": "bedroom light", "type": "light", "room": "bedroom", "actions": ["turn_on", "turn_off"], "state": {"power": "off"}},
+    {"id": "light_living", "name": "living room light", "type": "light", "room": "living room", "actions": ["turn_on", "turn_off"], "state": {"power": "off"}},
+    {"id": "light_kitchen", "name": "kitchen light", "type": "light", "room": "kitchen", "actions": ["turn_on", "turn_off"], "state": {"power": "off"}},
+    {"id": "fan_ceiling", "name": "ceiling fan", "type": "fan", "room": "bedroom", "actions": ["turn_on", "turn_off", "set_value"], "value": {"min": 0, "max": 5, "unit": "speed"}, "state": {"power": "off", "value": 0}},
+    {"id": "ac_bedroom", "name": "AC", "type": "ac", "room": "bedroom", "actions": ["turn_on", "turn_off", "set_value", "query_state"], "value": {"min": 16, "max": 30, "unit": "degrees"}, "state": {"power": "off", "value": 24}},
+    {"id": "tv_living", "name": "TV", "type": "tv", "room": "living room", "actions": ["turn_on", "turn_off", "set_value"], "value": {"min": 0, "max": 100, "unit": "volume"}, "state": {"power": "off", "value": 20}},
+    {"id": "lock_front", "name": "door lock", "type": "lock", "room": "entrance", "actions": ["turn_on", "turn_off", "query_state"], "state": {"power": "off"}},
+    {"id": "curtains_living", "name": "curtains", "type": "curtain", "room": "living room", "actions": ["turn_on", "turn_off"], "state": {"power": "off"}},
+    {"id": "garage_door", "name": "garage door", "type": "garage", "room": "garage", "actions": ["turn_on", "turn_off", "query_state"], "state": {"power": "off"}},
+    {"id": "heater_bath", "name": "heater", "type": "heater", "room": "bathroom", "actions": ["turn_on", "turn_off", "set_value"], "value": {"min": 10, "max": 40, "unit": "degrees"}, "state": {"power": "off", "value": 22}},
+    {"id": "sensor_temp", "name": "temperature sensor", "type": "sensor", "room": "living room", "actions": ["query_state"], "value": {"min": -10, "max": 50, "unit": "degrees"}, "state": {"value": 27}},
+    {"id": "sensor_motion", "name": "motion sensor", "type": "sensor", "room": "entrance", "actions": ["query_state"], "state": {"value": "no motion"}}
+  ],
+  "routines": {
+    "goodnight": [
+      {"intent": "turn_off", "device": "light_bedroom"},
+      {"intent": "turn_off", "device": "light_living"},
+      {"intent": "turn_off", "device": "light_kitchen"},
+      {"intent": "turn_on", "device": "lock_front"},
+      {"intent": "set_value", "device": "ac_bedroom", "value": 24}
+    ],
+    "goodmorning": [
+      {"intent": "turn_on", "device": "light_bedroom"},
+      {"intent": "turn_on", "device": "curtains_living"},
+      {"intent": "turn_off", "device": "lock_front"}
+    ],
+    "movie time": [
+      {"intent": "turn_off", "device": "light_living"},
+      {"intent": "turn_on", "device": "tv_living"},
+      {"intent": "turn_off", "device": "curtains_living"}
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+# Core (fallback pipeline runs with just these)
+pytest>=7.0
+streamlit>=1.30
+
+# Notebook
+jupyter>=1.0
+
+# Real model adapters (enabled)
+openai-whisper>=20231117   # WhisperASR (Whisper Medium)
+gTTS>=2.5                  # real text-to-speech
+
+# Optional: large LLM adapters (uncomment if running Nemotron/Mistral locally)
+# transformers>=4.40         # Nemotron / Mistral via Hugging Face
+# torch>=2.1                 # backend for the above

@@ -9,6 +9,9 @@ jupyter>=1.0
 openai-whisper>=20231117   # WhisperASR (Whisper Medium)
 gTTS>=2.5                  # real text-to-speech
 
+# Browser microphone capture
+audio-recorder-streamlit>=0.0.8
+
 # Optional: large LLM adapters (uncomment if running Nemotron/Mistral locally)
 # transformers>=4.40         # Nemotron / Mistral via Hugging Face
 # torch>=2.1                 # backend for the above
